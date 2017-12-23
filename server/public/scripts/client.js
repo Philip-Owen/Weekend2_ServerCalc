@@ -1,5 +1,7 @@
 console.log('js');
 
+let objectToSend = 0;
+
 $(document).ready(onLoad);
 
 // Begin onLoad function
@@ -13,7 +15,7 @@ function bundleObject() {
     let firstVal = $('#value-one').val();
     let secondVal = $('#value-two').val();
     let operator = getOperator($(this).text());
-    let objectToSend = new CalcObj(firstVal, secondVal, operator);
+    objectToSend = new CalcObj(firstVal, secondVal, operator);
     console.log(objectToSend);
     $.ajax({
         method: 'POST',
@@ -21,8 +23,8 @@ function bundleObject() {
         data: objectToSend,
         success: (response) => {
             console.log(response);
-            $('input').val('')
-            getResults()
+            $('input').val('');
+            getResults();
         }
     })
     
@@ -48,12 +50,34 @@ function getOperator(operator) {
     return operation;
 } // end getOperator
 
+// Begin getResults
 function getResults() {
+    let returnValue = 0;
     $.ajax({
         method: 'GET',
         url: '/calculation',
         success: (response) => {
             console.log(response);
+            $('#calc-results').text(response.equals);
+            let numOne = objectToSend.firstNum;
+            let numTwo = objectToSend.secondNum;
+            let operator = objectToSend.operator;
+            switch (operator) {
+                case 'add':
+                    operator = '+';
+                    break;
+                case 'subtract':
+                    operator = '-';
+                    break;
+                case 'multiply':
+                    operator = '*';
+                    break;
+                case 'divide':
+                    operator = '/';
+                    break;
+            }   
+            $('#past-calc').append('<li>'+numOne+' '+operator+' '+numTwo+' = ' + response.equals+'</li>');
         }
-    })
-}
+    });
+} // end getResults
+
