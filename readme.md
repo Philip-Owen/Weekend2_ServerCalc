@@ -8,8 +8,9 @@
 
 ## Client Side
 
-- [ ] take in two values via two input fields
-- [ ] take in mathmatical operation via button
+- [X] take in two values via two input fields
+- [X] take in mathmatical operation via button
+- [X] add equation result field
 - [ ] bundle above in an object
 - [ ] send to server via ajax POST 
 - [ ] receive output from server via ajax GET
