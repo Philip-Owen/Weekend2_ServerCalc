@@ -12,7 +12,7 @@
     <h1>calc</h1>
     <div id="calc-input">
       <div >
-        <h2 id="calc-results">0</h2>
+        <h2 id="calc-results"></h2>
       </div>
       <input type="number" name="" id="value-one">
       <input type="number" name="" id="value-two">
@@ -20,12 +20,15 @@
       <button class"calcBtn" id="subCalc">-</button>
       <button class"calcBtn" id="mulCalc">*</button>
       <button class"calcBtn" id="divdCalc">/</button>
+      <button class"calcBtn" id="clearCalc">C</button>
+
     </div>
     <div id="calc-output">
-      <ul id="past-calc">
-        <p>History:</p>
-
-      </ul>
+      <p>History:</p>
+      <div id="history">
+        <ul id="past-calc">
+        </ul>
+      </div>
     </div>
   </body>
 </html>

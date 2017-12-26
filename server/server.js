@@ -14,7 +14,15 @@ app.post('/calculation', (req,res) => {
     res.sendStatus(201);
 });
 
-app.get('/calculation', (req,res) =>  res.send(calculation.result));
+app.get('/clearResults', (req,res) => {  
+    calculation.resetAll();
+    res.send(calculation.calcArray);
+});
+
+app.get('/calculation', (req,res) =>  {
+    // console.log('in calc', calculation.calcArray);
+    res.send(calculation.calcArray);
+});
 
 
 // server listener

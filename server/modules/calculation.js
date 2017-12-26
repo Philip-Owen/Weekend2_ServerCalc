@@ -1,6 +1,14 @@
-let result = {
-    equals: 0
+class Calculation {
+    constructor(result, equation) {
+        this.result = result;
+        this.equation = equation;
+    }
 }
+
+calcArray = [];
+
+let result = 0;
+let pastCalc = 0;
 
 function performCalc(inputObject) {
     numOne = Number(inputObject.firstNum);
@@ -8,22 +16,35 @@ function performCalc(inputObject) {
     operator = inputObject.operator;
 
     switch (operator) {
-        case 'add':
-            result.equals = numOne + numTwo
+        case '+':
+            result = numOne + numTwo
+            pastCalc = numOne + ' + ' + numTwo + ' = ' + result;
+            calcArray.push(new Calculation(result, pastCalc));
             break;
-        case 'subtract':
-            result.equals = numOne - numTwo
+        case '-':
+            result = numOne - numTwo
+            pastCalc = numOne + ' - ' + numTwo + ' = ' + result;
+            calcArray.push(new Calculation(result, pastCalc));
             break;
-        case 'multiply':
-            result.equals = numOne * numTwo
+        case '*':
+            result = numOne * numTwo
+            pastCalc = numOne + ' * ' + numTwo + ' = ' + result;
+            calcArray.push(new Calculation(result, pastCalc));
             break;
-        case 'divide':
-            result.equals = numOne / numTwo
+        case '/':
+            result = numOne / numTwo
+            pastCalc = numOne + ' / ' + numTwo + ' = ' + result;
+            calcArray.push(new Calculation(result, pastCalc));
             break;
     }
 }
 
+function resetAll() {
+    calcArray.length = 0;
+}
+
 module.exports = {
     performCalc: performCalc,
-    result: result
+    calcArray: calcArray,
+    resetAll: resetAll
 }   

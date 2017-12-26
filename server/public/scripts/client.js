@@ -1,83 +1,69 @@
-console.log('js');
 
-let objectToSend = 0;
+$(document).ready( () => {
+    // runs to pull past calcs from server if there are any
+    getResults()
+    
+    // *** Event Listeners ***
+    $('#addCalc, #subCalc, #mulCalc, #divdCalc ').on('click', bundleObject);
+    $('#clearCalc').on('click', resetAll);
+});
 
-$(document).ready(onLoad);
 
-// Begin onLoad function
-function onLoad() {
-    console.log('JQ');
-    $('button').on('click',bundleObject)
-} // end onLoad
+// *********************************************************
+//                      Functions
+// *********************************************************
 
-// Begin bundleObject function
+// begin bundleObject()
+// packages equation into an object to be sent to the server
 function bundleObject() {
+    let objectToSend;
     let firstVal = $('#value-one').val();
     let secondVal = $('#value-two').val();
-    let operator = getOperator($(this).text());
-    objectToSend = new CalcObj(firstVal, secondVal, operator);
-    console.log(objectToSend);
+    let operator = $(this).text();
+    objectToSend = new CalcObj(firstVal, secondVal, operator);  
     $.ajax({
         method: 'POST',
         url: '/calculation',
         data: objectToSend,
-        success: (response) => {
-            console.log(response);
+        success: (response) => {         
             $('input').val('');
             getResults();
         }
     })
-    
-} // end bundleObject
+} // end bundleObject()
 
-// Begin getOperator function
-function getOperator(operator) {
-    let operation = '';
-    switch (operator) {
-        case '+':
-            operation = 'add';
-            break;
-        case '-':
-            operation = 'subtract';
-            break;
-        case '*':
-            operation = 'multiply';
-            break;
-        case '/':
-            operation = 'divide';
-            break;
-    }   
-    return operation;
-} // end getOperator
-
-// Begin getResults
+// Begin getResults()
+// Runs at begining of 'document ready' to post any past calculations to the page.
+// Also runs at the end of bundleObject() to get the last calculation made and appends it to the DOM. 
 function getResults() {
     let returnValue = 0;
     $.ajax({
         method: 'GET',
         url: '/calculation',
-        success: (response) => {
-            console.log(response);
-            $('#calc-results').text(response.equals);
-            let numOne = objectToSend.firstNum;
-            let numTwo = objectToSend.secondNum;
-            let operator = objectToSend.operator;
-            switch (operator) {
-                case 'add':
-                    operator = '+';
-                    break;
-                case 'subtract':
-                    operator = '-';
-                    break;
-                case 'multiply':
-                    operator = '*';
-                    break;
-                case 'divide':
-                    operator = '/';
-                    break;
-            }   
-            $('#past-calc').append('<li>'+numOne+' '+operator+' '+numTwo+' = ' + response.equals+'</li>');
+        success: (response) => { 
+            console.log('in getResults', response);
+            let calcLength = response.length - 1;
+            if (calcLength >= 0) {
+                $('#calc-results').html(response[calcLength].result);
+                $('#past-calc').empty();
+                for (let i = 0; i < response.length; i++) {
+                    $('#past-calc').prepend('<li>' + response[i].equation + '</li>')  
+                }
+            }
         }
     });
-} // end getResults
+} // end getResults()
 
+// begin resetAll()
+// resets calcArray array on the server to an empty array and changes calc-results to 0
+function resetAll() {
+    $.ajax({
+        method: 'GET',
+        url: '/clearResults',
+        success: (response) => {
+            console.log('in resetAll', response);
+            $('#past-calc').empty();
+            $('#calc-results').html('0')
+        }
+    });
+} // end resetAll()
