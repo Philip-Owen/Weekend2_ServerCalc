@@ -10,7 +10,6 @@ $(document).ready( () => {
     $('#equalCalc').on('click', calculateExpression)
     $('#clearCalc').on('click', resetAll);
     $('#past-calc').on('click', 'li', getHistoryResults)
-    
 });
 
 
@@ -31,6 +30,7 @@ let setter = false;
 
 
 // begin numberInputs()
+// appends number pad clicks into numbers on the page.
 function numberInputs() {
     if (!setter) {
         $('#calc-results').text('');
@@ -43,7 +43,7 @@ function numberInputs() {
 
 
 // begin startExpression()
-// packages equation into an object to be sent to the server
+// after expression click, stores expression and first value to be packaged in object after equals is clicked
 function startExpression() {
     firstInput = $('#calc-results').text();
     operator = $(this).text();
@@ -54,6 +54,7 @@ function startExpression() {
 
 
 // begin calculateExpression()
+// builds objects to be sent to server side for calculation results.
 function calculateExpression() {
     secondInput = $('#calc-results').text();
     objectToSend = new CalcObj(firstInput, secondInput, operator);
@@ -69,7 +70,6 @@ function calculateExpression() {
             setter = false;
         }
     })
-    
 } // end calculateExpression()
 
 
@@ -90,6 +90,7 @@ function getResults() {
                 for (let i = 0; i < response.length; i++) {
                     $row = $('<li>');
                     $row.append(response[i].equation);
+                    // Applies data tag to each li to be used to pull past history results
                     $row.data('results', response[i].result);
                     $('#past-calc').prepend($row)
                 }
@@ -114,8 +115,10 @@ function resetAll() {
     });
 } // end resetAll()
 
+
+// begin getHistoryResults()
+// used to pull past results off of each li .data tag
 function getHistoryResults() {
     $('#calc-waiting').children().empty();
     $('#calc-results').html($(this).data('results'))
-    
-}
+} // end getHistoryResults()
