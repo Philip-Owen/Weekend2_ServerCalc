@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 // Receives object from client side ajax POST, and performs calculations
 app.post('/calculation', (req,res) => {
+    console.log(req.body);
     calculation.performCalc(req.body);
     res.sendStatus(201);
 });

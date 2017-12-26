@@ -3,54 +3,70 @@
   <head>
     <meta charset="utf-8">
     <title>Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <script src="vendors/jquery.min.js" charset="utf-8"></script>
     <script src="scripts/classes.js"></script>
     <script src="scripts/client.js" charset="utf-8"></script>
     <link rel="stylesheet" href="styles/styles.css">
   </head>
   <body>
-    <h1>calc</h1>
-    <div id="calc-buttons">
-      <div id="calc-output">
-        <h4 id="calc-waiting"><span id="value-one"> </span><span id="exp-opr"></span></h4>
-        <h2 id="calc-results">0</h2>
-      </div>
-      <div id="calc-numbers">
-        <div>
-          <button class"operators" id="clearCalc">C</button>
-          <button class"operators" id="divdCalc">/</button>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-5">
+              <div id="calc-expression">
+                <h4 class="text-left" id="calc-waiting"><span id="value-one"> </span><span id="exp-opr"></span></h4>
+              </div>
+              <div id="calc-output">
+                <h2 class="text-right" id="calc-results">0</h2>
+              </div>
+            </div>
         </div>
-        <div>
-          <button class="numbers">7</button>
-          <button class="numbers">8</button>
-          <button class="numbers">9</button>
-          <button class"operators" id="mulCalc">*</button>
+        <div class="row">
+            <div class="col-md-offset-1 col-md-6">
+              <div id="calc-buttons">
+                <div id="calc-numbers">
+                  <div>
+                    <button class"clears" id="clearCalc">C</button>
+                    <button class"clears" id="clearEntry">CE</button>
+                    <button class"operators" id="divdCalc">/</button>
+                  </div>
+                  <div>
+                    <button class="numbers">7</button>
+                    <button class="numbers">8</button>
+                    <button class="numbers">9</button>
+                    <button class"operators" id="mulCalc">*</button>
+                  </div>
+                  <div>
+                    <button class="numbers">4</button>
+                    <button class="numbers">5</button>
+                    <button class="numbers">6</button>
+                    <button class"operators" id="subCalc">-</button>
+                  </div>
+                  <div>
+                    <button class="numbers">1</button>
+                    <button class="numbers">2</button>
+                    <button class="numbers">3</button>
+                    <button class"operators" id="addCalc">+</button>
+                  </div>
+                  <div>
+                    <button id="num-zero" class="numbers">0</button>
+                    <button class="numbers">.</button>
+                    <button class"operators" id="equalCalc">=</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div id="history">
+                <p>History:</p>
+                <div>
+                  <ul id="past-calc">
+                  </ul>
+                </div>
+              </div>
+            </div>
         </div>
-        <div>
-          <button class="numbers">4</button>
-          <button class="numbers">5</button>
-          <button class="numbers">6</button>
-          <button class"operators" id="subCalc">-</button>
-        </div>
-        <div>
-          <button class="numbers">1</button>
-          <button class="numbers">2</button>
-          <button class="numbers">3</button>
-          <button class"operators" id="addCalc">+</button>
-        </div>
-        <div>
-          <button id="num-zero" class="numbers">0</button>
-          <button class="numbers">.</button>
-          <button class"operators" id="equalCalc">=</button>
-        </div>
-      </div>
-    </div>
-    <div id="history">
-      <p>History:</p>
-      <div>
-        <ul id="past-calc">
-        </ul>
-      </div>
     </div>
   </body>
 </html>

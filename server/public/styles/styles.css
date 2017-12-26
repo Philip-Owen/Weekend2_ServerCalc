@@ -1,27 +1,90 @@
+body {
+    background-color: black;
+    color: #ffffff;
+}
+
 button {
-    width: 40px;
-    height: 30px;
+    width: 85px;
+    height: 85px;
     margin: 4px;
+    font-size: 25px;
+    border: none;
+    border-radius: 50%;
+    
+}
+
+button:focus {
+    outline: none;
 }
 
 #clearCalc {
-    width: 144px;
+    width: 183px;
+    border-radius: 50px;
 }
 
 #num-zero{
-    width: 92px;
+    width: 183px;
+    border-radius: 50px;
 }
 
 #calc-results {
     margin: 0;
-    margin-left: 150px;
+    font-size: 75px;
+}
+
+#calc-expression {
+    margin-top: 75px;
+    height: 35px;
 }
 
 #calc-waiting {
-    margin: 0;
-    height: 18.5px;
+    margin-left: 12px;
+    font-size: 30px;
 }
 
 #calc-output {
-    height: 50px;
+    margin-top: 0;
 } 
+
+#divdCalc, #mulCalc, #subCalc, #addCalc, #equalCalc {
+    background-color: #FFA534;
+    color: white;
+}
+
+#divdCalc:hover, #mulCalc:hover, #subCalc:hover, #addCalc:hover, #equalCalc:hover {
+    background-color: rgb(250, 191, 119);
+    color: white;
+}
+#clearCalc, #clearEntry {
+    background-color: #B4B3B8;
+}
+
+#clearCalc:hover, #clearEntry:hover {
+    background-color:  rgb(205, 204, 207);
+}
+
+#calc-buttons {
+    margin-top: 10px;
+}
+
+#history {
+    font-size: 45px;
+}
+
+#calc-buttons {
+    margin-left: 80px;
+}
+
+#past-calc {
+    font-size: 30px;
+}
+
+.numbers {
+    background-color: #333233;
+    color: white;
+}
+
+.numbers:hover {
+    background-color: #505050;
+    color: white;
+}

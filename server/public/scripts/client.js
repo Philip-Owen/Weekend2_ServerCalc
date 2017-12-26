@@ -34,7 +34,7 @@ let setter = false;
 function numberInputs() {
     if (!setter) {
         $('#calc-results').text('');
-        $('#calc-results').append($(this).text()).val();
+        $('#calc-results').append($(this).text());
         setter = true;
     } else {
         $('#calc-results').append($(this).text());
