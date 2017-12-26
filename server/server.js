@@ -14,7 +14,7 @@ app.post('/calculation', (req,res) => {
     res.sendStatus(201);
 });
 
-app.get('/clearResults', (req,res) => {  
+app.delete('/clearResults', (req,res) => {  
     calculation.resetAll();
     res.send(calculation.calcArray);
 });

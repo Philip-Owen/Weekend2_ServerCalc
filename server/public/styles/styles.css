@@ -1,0 +1,27 @@
+button {
+    width: 40px;
+    height: 30px;
+    margin: 4px;
+}
+
+#clearCalc {
+    width: 144px;
+}
+
+#num-zero{
+    width: 92px;
+}
+
+#calc-results {
+    margin: 0;
+    margin-left: 150px;
+}
+
+#calc-waiting {
+    margin: 0;
+    height: 18.5px;
+}
+
+#calc-output {
+    height: 50px;
+} 
