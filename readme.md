@@ -5,6 +5,7 @@
 - [X] write app.post to receive object from client side
 - [X] create module to perform mathmatical calculations
 - [X] write app.get to send equation output to client side
+- [X] reset function to clear history
 
 ## Client Side
 
@@ -14,4 +15,5 @@
 - [X] bundle above in an object
 - [X] send to server via ajax POST 
 - [X] receive output from server via ajax GET
-- [ ] keep a log of past calculations made on the page, update list when new calc is made.
+- [X] keep a log of past calculations made on the page, update list when new calc is made.
+- [X] add a reset button to reset all information on the page and sever.
