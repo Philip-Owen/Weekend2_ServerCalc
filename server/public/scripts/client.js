@@ -10,6 +10,7 @@ $(document).ready( () => {
     $('#equalCalc').on('click', calculateExpression)
     $('#clearCalc').on('click', resetAll);
     $('#past-calc').on('click', 'li', getHistoryResults)
+    $('#clearEntry').on('click', clearEntries)
 });
 
 
@@ -122,3 +123,11 @@ function getHistoryResults() {
     $('#calc-waiting').children().empty();
     $('#calc-results').html($(this).data('results'))
 } // end getHistoryResults()
+
+function clearEntries() {
+    $('#calc-waiting').children().empty();
+    $('#calc-results').html('0')
+    firstInput = 0;
+    operator = 0;
+    secondInput = 0;
+}

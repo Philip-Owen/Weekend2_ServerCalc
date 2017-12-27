@@ -35,10 +35,11 @@ button:focus {
 #calc-expression {
     margin-top: 75px;
     height: 35px;
+    width: 400px;
 }
 
 #calc-waiting {
-    margin-left: 12px;
+    margin-left: 80px;
     font-size: 30px;
 }
 
