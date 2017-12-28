@@ -1,24 +1,26 @@
-# Weekend Challenge #2
+# Weekend 2 Challenge 
+## Node.js Calculator App
+A calculator application that can perform the following calculations:
 
-## Server Side
+- Addition
+- Subtraction
+- Multiplication
+- Division
 
-- [X] write app.post to receive object from client side
-- [X] create module to perform mathmatical calculations
-- [X] write app.get to send equation output to client side
-- [X] reset function to clear history
-- [X] refactored GET request to clear history to a DELETE request
+Calculations are not limited to whole numbers and can include decimals.
 
-## Client Side
+User input is sent from the client side for processing on the server. 
 
-- [X] take in two values via two input fields
-- [X] take in mathmatical operation via button
-- [X] add equation result field
-- [X] bundle above in an object
-- [X] send to server via ajax POST 
-- [X] receive output from server via ajax GET
-- [X] keep a log of past calculations made on the page, update list when new calc is made.
-- [X] add a reset button to reset all information on the page and sever.
-- [X] remove input fields and add number buttons
-- [X] use number buttons to do calculations
-- [X] added decimal point to number pad
-- [X] on click of past calculations, past result appears in the results field 
+The history section, lists the calculations done since the last clear. If an item in the history section is clicked the result of that item will show on the calculator window.
+
+The theme is based off of the look and feel of the Apple iOS calculator. 
+
+![screenshot](images/calcApp.png)
+
+## Built using:
+ - HTML
+ - CSS/Bootstrap
+ - JavaScript
+ - jQuery
+ - Node.js
+ - Express.js
