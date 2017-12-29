@@ -7,6 +7,7 @@
 - [X] write app.get to send equation output to client side
 - [X] reset function to clear history
 - [X] refactored GET request to clear history to a DELETE request
+- [X] add server side functionality for exponents
 
 ## Client Side
 
@@ -22,3 +23,5 @@
 - [X] use number buttons to do calculations
 - [X] added decimal point to number pad
 - [X] on click of past calculations, past result appears in the results field 
+- [X] add client side functionality for exponents
+- [X] add new icons for division, subtraction, and multiplication

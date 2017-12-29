@@ -29,19 +29,24 @@ function performCalc(inputObject) {
             pastCalc = numOne + ' + ' + numTwo + ' = ' + result;
             calcArray.push(new Calculation(result, pastCalc));
             break;
-        case '-':
+        case '−':
             result = numOne - numTwo
-            pastCalc = numOne + ' - ' + numTwo + ' = ' + result;
+            pastCalc = numOne + ' − ' + numTwo + ' = ' + result;
             calcArray.push(new Calculation(result, pastCalc));
             break;
-        case '*':
+        case '×':
             result = numOne * numTwo
-            pastCalc = numOne + ' * ' + numTwo + ' = ' + result;
+            pastCalc = numOne + ' × ' + numTwo + ' = ' + result;
             calcArray.push(new Calculation(result, pastCalc));
             break;
-        case '/':
+        case '÷':
             result = numOne / numTwo
-            pastCalc = numOne + ' / ' + numTwo + ' = ' + result;
+            pastCalc = numOne + ' ÷ ' + numTwo + ' = ' + result;
+            calcArray.push(new Calculation(result, pastCalc));
+            break;
+        case 'xy':
+            result = Math.pow(numOne, numTwo);
+            pastCalc = numOne + ' ^ ' + numTwo + ' = ' + result;
             calcArray.push(new Calculation(result, pastCalc));
             break;
     }

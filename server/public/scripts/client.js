@@ -6,7 +6,7 @@ $(document).ready( () => {
     
     // *** Event Listeners ***
     $('button.numbers').on('click', numberInputs)
-    $('#addCalc, #subCalc, #mulCalc, #divdCalc ').on('click', startExpression);
+    $('#addCalc, #subCalc, #mulCalc, #divdCalc, #expCalc').on('click', startExpression);
     $('#equalCalc').on('click', calculateExpression)
     $('#clearCalc').on('click', resetAll);
     $('#past-calc').on('click', 'li', getHistoryResults)
@@ -45,11 +45,16 @@ function numberInputs() {
 
 // begin startExpression()
 // after expression click, stores expression and first value to be packaged in object after equals is clicked
-function startExpression() {
+function startExpression() {    
     firstInput = $('#calc-results').text();
     operator = $(this).text();
-    $('#value-one').text(firstInput);
-    $('#exp-opr').text(operator);
+    if (operator == 'xy') {
+        $('#value-one').text(firstInput);
+        $('#exp-opr').text('^');
+    } else {
+        $('#value-one').text(firstInput);
+        $('#exp-opr').text(operator);
+    }
     setter = false;
 } // end startExpression()
 
@@ -59,7 +64,7 @@ function startExpression() {
 function calculateExpression() {
     secondInput = $('#calc-results').text();
     objectToSend = new CalcObj(firstInput, secondInput, operator);
-    console.log(objectToSend);
+    // console.log(objectToSend);
     $.ajax({
         method: 'POST',
         url: '/calculation',
@@ -112,6 +117,7 @@ function resetAll() {
             $('#past-calc').empty();
             $('#calc-results').html('0')
             $('#calc-waiting').children().empty();
+            setter = false;
         }
     });
 } // end resetAll()
@@ -124,10 +130,14 @@ function getHistoryResults() {
     $('#calc-results').html($(this).data('results'))
 } // end getHistoryResults()
 
+
+// begin clearEntries()
+// clears only the current calculation.
 function clearEntries() {
     $('#calc-waiting').children().empty();
     $('#calc-results').html('0')
     firstInput = 0;
     operator = 0;
     secondInput = 0;
-}
+    setter = false;
+} // end clearEntries()

@@ -6,6 +6,7 @@ A calculator application that can perform the following calculations:
 - Subtraction
 - Multiplication
 - Division
+- Exponents
 
 Calculations are not limited to whole numbers and can include decimals.
 

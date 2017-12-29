@@ -17,10 +17,10 @@ button:focus {
     outline: none;
 }
 
-#clearCalc {
+/* #clearCalc {
     width: 183px;
     border-radius: 50px;
-}
+} */
 
 #num-zero{
     width: 183px;
@@ -47,12 +47,12 @@ button:focus {
     margin-top: 0;
 } 
 
-#divdCalc, #mulCalc, #subCalc, #addCalc, #equalCalc {
+#divdCalc, #mulCalc, #subCalc, #addCalc, #equalCalc, #expCalc {
     background-color: #FFA534;
     color: white;
 }
 
-#divdCalc:hover, #mulCalc:hover, #subCalc:hover, #addCalc:hover, #equalCalc:hover {
+#divdCalc:hover, #mulCalc:hover, #subCalc:hover, #addCalc:hover, #equalCalc:hover, #expCalc:hover {
     background-color: rgb(250, 191, 119);
     color: white;
 }
