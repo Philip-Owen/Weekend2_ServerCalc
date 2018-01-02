@@ -6,7 +6,7 @@ $(document).ready( () => {
     
     // *** Event Listeners ***
     $('button.numbers').on('click', numberInputs)
-    $('#addCalc, #subCalc, #mulCalc, #divdCalc, #expCalc').on('click', startExpression);
+    $('.operators').on('click', startExpression);
     $('#equalCalc').on('click', calculateExpression)
     $('#clearCalc').on('click', resetAll);
     $('#past-calc').on('click', 'li', getHistoryResults)
