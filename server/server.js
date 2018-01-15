@@ -29,5 +29,5 @@ app.get('/calculation', (req,res) =>  {
 });
 
 // server listener
-const port = 8088;
+var port = process.env.PORT || 5000;
 app.listen(port, () => console.log('server up on port:', port))
